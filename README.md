@@ -1,10 +1,8 @@
-My Dotfiles
-========
+# My Dotfiles
 
 A place to store my dot files (desperately needs an update!)
 
-Usage
-========
+## Usage
 
 Clone into ~/dotfiles/
 ```bash
@@ -23,4 +21,19 @@ ln -nfs ~/dotfiles/gitconfig .gitconfig
 Fetch submodules after cloning repo, in ~/dotfiles
 ```bash
 git submodule update --init
+```
+
+## Maintenance
+
+Removing submodules
+```bash
+cd ~/dotfiles
+git submodule deinit vim/bundle/[MODULE-NAME]
+git rm -r vim/bundle/[MODULE-NAME]
+```
+
+Adding new submodules
+```bash
+cd ~/dotfiles
+git submodule add [MODULE-GIT-URL] vim/bundle/[MODULE-NAME]
 ```
