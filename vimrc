@@ -55,7 +55,7 @@ set softtabstop=2
 set showmatch "show matching brackets
 
 set list
-"Set line endings to show as ¬ instead of $ when viewing in :set list mode
+" Set line endings to show as ¬ instead of $ when viewing in :set list mode
 set lcs=eol:¬
 
 " Tab mappings.
@@ -72,6 +72,10 @@ map <leader>tm :tabmove
 " CTRL + n = remove blank space at the end of lines
 nnoremap <silent> <C-n> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
+" NERDTree Find
+nnoremap ,n :NERDTreeFind<CR>
+nnoremap ,m :NERDTreeToggle<CR>
+
 "Platform .ui files
 au BufRead,BufNewFile *.ui set filetype=ruby
 au BufRead,BufNewFile *.mustache set filetype=javascript
@@ -79,3 +83,9 @@ au BufNewFile,BufRead *.ctp set filetype=html
 au BufNewFile,BufRead Gemfile set filetype=ruby
 au BufNewFile,BufRead Rakefile set filetype=ruby
 au BufNewFile,BufRead Fudgefile set filetype=ruby
+
+" TypeScript Stuff
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow

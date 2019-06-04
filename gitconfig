@@ -1,8 +1,6 @@
-[brian]
-  griffin = Brian Griffin
 [user]
   name = Brian Griffin
-  email = brian.griffin@sage.com
+  email = brian@griffinridge.co.uk
 [alias]
   st = status
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
