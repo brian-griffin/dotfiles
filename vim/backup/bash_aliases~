@@ -7,7 +7,6 @@ export no_proxy=127.0.0.1
 # Directory Nav
 alias ..="cd .."
 alias ...="cd ../.."
-alias ....="cd ../../.."
 
 alias evergreen="be rails s -p 4000"
 
