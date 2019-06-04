@@ -70,16 +70,18 @@ FG_RED='\[\033[0;31m\]'
 FG_GREEN='\[\033[0;32m\]'
 FG_YELLOW='\[\033[0;33m\]'
 FG_BLUE='\[\033[0;34m\]'
+FG_LTBLUE='\[\033[0;94m\]'
 FG_PURPLE='\[\033[0;35m\]'
 FG_TEAL='\[\033[0;36m\]'
 FG_WHITE='\[\033[0;37m\]'
 FG_ORANGE='\[\033[0;214m\]'
+FG_SILVER='\[\033[0;250m\]'
 NO_COLOUR='\[\033[0m\]'
 
 PS1_TIME='\[\033[48;5;0m\033[38;5;250m\]'
 PS1_PATH='\[\033[0;38;5;12m\]'
 PS1_MARKER="$FG_ORANGE"
-GIT_LABEL='\[\033[48;5;234m\033[38;5;214m\]'
+GIT_LABEL='\[\033[48;5;237m\033[38;5;214m\]'
 GIT_JOIN='\[\033[48;5;179m\033[38;5;30m\]'
 GIT_BRANCH='\[\033[48;5;245m\033[38;5;234m\]'
 GIT_CLEAN='\[\033[48;5;22m\]'
@@ -93,7 +95,7 @@ SVN_SPACER='\[\033[48;5;250m\]'
 function check_user {
   # if user is not root
   if [[ $EUID -ne 0 ]]; then
-    PS1_TIME="$NO_COLOUR\033[38;5;250m\] \$(date +%H:%M) "
+    PS1_TIME="\[\033[48;5;0m\033[38;5;250m\]\$(date +%H:%M) "
     PS1_PATH="\[\033[0;38;5;222m\]"
     PS1_MARKER="$FG_YELLOW\$$NO_COLOUR "
   else
@@ -125,7 +127,7 @@ function repo_root {
 
 # Check branch status
 function get_branch_status {
-  if [[ $(git status | tail -n1) != "nothing to commit (working directory clean)" ]]; then
+  if [[ $(git status | tail -n1) != "nothing to commit, working directory clean" ]]; then
     echo -e "$GIT_DIRTY"
   else
     echo -e "$GIT_CLEAN"
