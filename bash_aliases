@@ -102,7 +102,7 @@ function check_user {
   if [[ $EUID -ne 0 ]]; then
     PS1_TIME="\[\033[48;5;0m\033[38;5;250m\]\$(date +%H:%M) "
     PS1_PATH="\[\033[0;38;5;222m\]"
-    PS1_MARKER="$FG_YELLOW\$$NO_COLOUR "
+    PS1_MARKER="$FG_YELLOW \$$NO_COLOUR"
   else
     PS1_TIME="\[\033[48;5;160m\033[38;5;255m\] \$(date +%H:%M) \[\033[48;5;88m\033[38;5;17m\] \$(id -nu) "
     PS1_PATH="\[\033[0;38;5;165m\]"
@@ -132,7 +132,7 @@ function repo_root {
 
 # Check branch status
 function get_branch_status {
-  if [[ $(git status | tail -n1) != "nothing to commit, working directory clean" ]]; then
+  if [[ $(git status | tail -n1) != "nothing to commit, working tree clean" ]]; then
     echo -e "$GIT_DIRTY"
   else
     echo -e "$GIT_CLEAN"
@@ -174,7 +174,7 @@ function set_prompt {
   current_branch=$(git branch --no-color | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/")
 
   # Set prompt with GIT labels
-  PS1="$PS1_TIME$GIT_LABEL ${repo_name} $GIT_BRANCH ${current_branch} ${branch_status} $NO_COLOUR $GIT_PATH\w$NO_COLOR $PS1_MARKER"
+  PS1="$PS1_TIME$GIT_PATH\w/$GIT_LABEL${repo_name} $GIT_BRANCH ${current_branch} ${branch_status} $NO_COLOR$PS1_MARKER "
 }
 
 # Custom window dims & pos for Sublime and Console duo

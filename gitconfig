@@ -36,3 +36,6 @@
 	prompt = false
 [merge]
 	tool = Kaleidoscope
+[credential]
+	helper = !aws codecommit credential-helper $@
+	UseHttpPath = true
