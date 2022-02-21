@@ -1,5 +1,3 @@
-export http_proxy="http://lon1.sme.zscaler.net:80"
-export https_proxy="http://lon1.sme.zscaler.net:9480"
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
